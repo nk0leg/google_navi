@@ -16,6 +16,15 @@
 		302F9B211E9A91640065A630 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302F9B1F1E9A91640065A630 /* LaunchScreen.storyboard */; };
 		302F9B2C1E9A91640065A630 /* ClarionNavigationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F9B2B1E9A91640065A630 /* ClarionNavigationTests.m */; };
 		302F9B371E9A91640065A630 /* ClarionNavigationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F9B361E9A91640065A630 /* ClarionNavigationUITests.m */; };
+		302F9B471E9BBA2D0065A630 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B461E9BBA2D0065A630 /* UIKit.framework */; };
+		302F9B491E9BBA410065A630 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B481E9BBA410065A630 /* CoreGraphics.framework */; };
+		302F9B4B1E9BBA730065A630 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B4A1E9BBA730065A630 /* AssetsLibrary.framework */; };
+		302F9B4D1E9BBA800065A630 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B4C1E9BBA800065A630 /* AVFoundation.framework */; };
+		302F9B4F1E9BBA930065A630 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B4E1E9BBA930065A630 /* CoreVideo.framework */; };
+		302F9B511E9BBA9D0065A630 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B501E9BBA9D0065A630 /* CoreMedia.framework */; };
+		302F9B531E9BBAA80065A630 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B521E9BBAA80065A630 /* QuartzCore.framework */; };
+		302F9B551E9BBAB50065A630 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B541E9BBAB50065A630 /* Foundation.framework */; };
+		4A3819B1240D2C56E8C12FDB /* libPods-ClarionNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD13EB4E535FCD5AF62032EB /* libPods-ClarionNavigation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +62,17 @@
 		302F9B321E9A91640065A630 /* ClarionNavigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClarionNavigationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		302F9B361E9A91640065A630 /* ClarionNavigationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClarionNavigationUITests.m; sourceTree = "<group>"; };
 		302F9B381E9A91640065A630 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		302F9B461E9BBA2D0065A630 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		302F9B481E9BBA410065A630 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		302F9B4A1E9BBA730065A630 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		302F9B4C1E9BBA800065A630 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		302F9B4E1E9BBA930065A630 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		302F9B501E9BBA9D0065A630 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		302F9B521E9BBAA80065A630 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		302F9B541E9BBAB50065A630 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		903BAB818436100B6B977E53 /* Pods-ClarionNavigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarionNavigation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClarionNavigation/Pods-ClarionNavigation.debug.xcconfig"; sourceTree = "<group>"; };
+		CD13EB4E535FCD5AF62032EB /* libPods-ClarionNavigation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ClarionNavigation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2F3A2A72DFE61ED23115DE3 /* Pods-ClarionNavigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarionNavigation.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClarionNavigation/Pods-ClarionNavigation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +80,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302F9B471E9BBA2D0065A630 /* UIKit.framework in Frameworks */,
+				302F9B551E9BBAB50065A630 /* Foundation.framework in Frameworks */,
+				302F9B491E9BBA410065A630 /* CoreGraphics.framework in Frameworks */,
+				302F9B4B1E9BBA730065A630 /* AssetsLibrary.framework in Frameworks */,
+				302F9B4D1E9BBA800065A630 /* AVFoundation.framework in Frameworks */,
+				302F9B4F1E9BBA930065A630 /* CoreVideo.framework in Frameworks */,
+				302F9B511E9BBA9D0065A630 /* CoreMedia.framework in Frameworks */,
+				302F9B531E9BBAA80065A630 /* QuartzCore.framework in Frameworks */,
+				4A3819B1240D2C56E8C12FDB /* libPods-ClarionNavigation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,9 +113,12 @@
 			isa = PBXGroup;
 			children = (
 				302F9B0D1E9A91640065A630 /* ClarionNavigation */,
+				302F9B561E9BBBDA0065A630 /* ScreenCapture */,
 				302F9B2A1E9A91640065A630 /* ClarionNavigationTests */,
 				302F9B351E9A91640065A630 /* ClarionNavigationUITests */,
 				302F9B0C1E9A91640065A630 /* Products */,
+				92384684255843CEF03FDD86 /* Pods */,
+				9E13F0017A8AC23CC23571D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +175,39 @@
 			path = ClarionNavigationUITests;
 			sourceTree = "<group>";
 		};
+		302F9B561E9BBBDA0065A630 /* ScreenCapture */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ScreenCapture;
+			path = ClarionNavigation;
+			sourceTree = "<group>";
+		};
+		92384684255843CEF03FDD86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				903BAB818436100B6B977E53 /* Pods-ClarionNavigation.debug.xcconfig */,
+				D2F3A2A72DFE61ED23115DE3 /* Pods-ClarionNavigation.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E13F0017A8AC23CC23571D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				302F9B541E9BBAB50065A630 /* Foundation.framework */,
+				302F9B521E9BBAA80065A630 /* QuartzCore.framework */,
+				302F9B501E9BBA9D0065A630 /* CoreMedia.framework */,
+				302F9B4E1E9BBA930065A630 /* CoreVideo.framework */,
+				302F9B4C1E9BBA800065A630 /* AVFoundation.framework */,
+				302F9B4A1E9BBA730065A630 /* AssetsLibrary.framework */,
+				302F9B481E9BBA410065A630 /* CoreGraphics.framework */,
+				302F9B461E9BBA2D0065A630 /* UIKit.framework */,
+				CD13EB4E535FCD5AF62032EB /* libPods-ClarionNavigation.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +215,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 302F9B3B1E9A91640065A630 /* Build configuration list for PBXNativeTarget "ClarionNavigation" */;
 			buildPhases = (
+				015ED282E0BA3FAD8A3B77EE /* [CP] Check Pods Manifest.lock */,
 				302F9B071E9A91640065A630 /* Sources */,
 				302F9B081E9A91640065A630 /* Frameworks */,
 				302F9B091E9A91640065A630 /* Resources */,
+				5BE720B56BB1A144ADA94540 /* [CP] Embed Pods Frameworks */,
+				8028EB6F566799A6C2A858A0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,6 +280,11 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 5NBNSZSEH3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					302F9B261E9A91640065A630 = {
 						CreatedOnToolsVersion = 8.3;
@@ -273,6 +346,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		015ED282E0BA3FAD8A3B77EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5BE720B56BB1A144ADA94540 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClarionNavigation/Pods-ClarionNavigation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8028EB6F566799A6C2A858A0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClarionNavigation/Pods-ClarionNavigation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		302F9B071E9A91640065A630 /* Sources */ = {
@@ -431,6 +552,7 @@
 		};
 		302F9B3C1E9A91640065A630 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 903BAB818436100B6B977E53 /* Pods-ClarionNavigation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5NBNSZSEH3;
@@ -443,6 +565,7 @@
 		};
 		302F9B3D1E9A91640065A630 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2F3A2A72DFE61ED23115DE3 /* Pods-ClarionNavigation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5NBNSZSEH3;
@@ -522,6 +645,7 @@
 				302F9B3D1E9A91640065A630 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		302F9B3E1E9A91640065A630 /* Build configuration list for PBXNativeTarget "ClarionNavigationTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +654,7 @@
 				302F9B401E9A91640065A630 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		302F9B411E9A91640065A630 /* Build configuration list for PBXNativeTarget "ClarionNavigationUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +663,7 @@
 				302F9B431E9A91640065A630 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
