@@ -24,6 +24,8 @@
 		302F9B511E9BBA9D0065A630 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B501E9BBA9D0065A630 /* CoreMedia.framework */; };
 		302F9B531E9BBAA80065A630 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B521E9BBAA80065A630 /* QuartzCore.framework */; };
 		302F9B551E9BBAB50065A630 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B541E9BBAB50065A630 /* Foundation.framework */; };
+		3E5E96341EA68CE3000BD2C2 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E96321EA68CE3000BD2C2 /* MainMenuView.m */; };
+		3E5E96351EA68CE3000BD2C2 /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5E96331EA68CE3000BD2C2 /* MainMenuView.xib */; };
 		4A3819B1240D2C56E8C12FDB /* libPods-ClarionNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD13EB4E535FCD5AF62032EB /* libPods-ClarionNavigation.a */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,9 @@
 		302F9B501E9BBA9D0065A630 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		302F9B521E9BBAA80065A630 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		302F9B541E9BBAB50065A630 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3E5E96311EA68CE3000BD2C2 /* MainMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuView.h; sourceTree = "<group>"; };
+		3E5E96321EA68CE3000BD2C2 /* MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuView.m; sourceTree = "<group>"; };
+		3E5E96331EA68CE3000BD2C2 /* MainMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuView.xib; sourceTree = "<group>"; };
 		903BAB818436100B6B977E53 /* Pods-ClarionNavigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarionNavigation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClarionNavigation/Pods-ClarionNavigation.debug.xcconfig"; sourceTree = "<group>"; };
 		CD13EB4E535FCD5AF62032EB /* libPods-ClarionNavigation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ClarionNavigation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F3A2A72DFE61ED23115DE3 /* Pods-ClarionNavigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarionNavigation.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClarionNavigation/Pods-ClarionNavigation.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +140,7 @@
 		302F9B0D1E9A91640065A630 /* ClarionNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				3E5E962A1EA6846E000BD2C2 /* Views */,
 				302F9B111E9A91640065A630 /* AppDelegate.h */,
 				302F9B121E9A91640065A630 /* AppDelegate.m */,
 				302F9B141E9A91640065A630 /* ViewController.h */,
@@ -181,6 +187,24 @@
 			);
 			name = ScreenCapture;
 			path = ClarionNavigation;
+			sourceTree = "<group>";
+		};
+		3E5E962A1EA6846E000BD2C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3E5E96301EA68CE3000BD2C2 /* MainMenu */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3E5E96301EA68CE3000BD2C2 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3E5E96311EA68CE3000BD2C2 /* MainMenuView.h */,
+				3E5E96321EA68CE3000BD2C2 /* MainMenuView.m */,
+				3E5E96331EA68CE3000BD2C2 /* MainMenuView.xib */,
+			);
+			path = MainMenu;
 			sourceTree = "<group>";
 		};
 		92384684255843CEF03FDD86 /* Pods */ = {
@@ -327,6 +351,7 @@
 			files = (
 				302F9B211E9A91640065A630 /* LaunchScreen.storyboard in Resources */,
 				302F9B1E1E9A91640065A630 /* Assets.xcassets in Resources */,
+				3E5E96351EA68CE3000BD2C2 /* MainMenuView.xib in Resources */,
 				302F9B191E9A91640065A630 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,7 +385,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5BE720B56BB1A144ADA94540 /* [CP] Embed Pods Frameworks */ = {
@@ -400,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E5E96341EA68CE3000BD2C2 /* MainMenuView.m in Sources */,
 				302F9B161E9A91640065A630 /* ViewController.m in Sources */,
 				302F9B131E9A91640065A630 /* AppDelegate.m in Sources */,
 				302F9B1C1E9A91640065A630 /* ClarionNavigation.xcdatamodeld in Sources */,
