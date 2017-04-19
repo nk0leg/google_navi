@@ -14,12 +14,23 @@
 
 #import "ViewController.h"
 #import "MainMenuView.h"
+#import "SearchControllerHandler.h"
+#import "ClarionSearchController.h"
+#import "RoundedView.h"
+
+static CGFloat const kZoomButtonsContainerMaxAlpha = 0.4;
+static CGFloat const kLeftButtonsContainerMaxAlpha = 1.0;
 
 @interface ViewController () <GMSMapViewDelegate, MainMenuDelegate>
 
 @property (nonatomic, weak) IBOutlet GMSMapView *mapView;
 @property (nonatomic, weak) IBOutlet MainMenuView *mainMenu;
 @property (nonatomic, weak) IBOutlet UIView *dimmingView;
+
+@property (nonatomic, strong) ClarionSearchController *searchController;
+@property (nonatomic, strong) SearchControllerHandler *searchControllerHandler;
+@property (weak, nonatomic) IBOutlet UIView *leftButtonsContainer;
+@property (weak, nonatomic) IBOutlet RoundedView *zoomButtonsContainer;
 
 @property (nonatomic, strong) UIImage *currentScreen;
 @end
@@ -36,6 +47,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self showMapViewWorkPanels:NO animated:NO];
+    [self setupSearchController];
+    
     _mapView.camera = [GMSCameraPosition cameraWithLatitude:-33.868
                                                   longitude:151.2086
                                                        zoom:12];
@@ -71,11 +86,62 @@
     self.mainMenu.delegate = self;
 }
 
+- (void)setupSearchController {
+    self.searchController = [[ClarionSearchController alloc] initWithSearchResultsController:nil];
+    self.searchControllerHandler = [SearchControllerHandler new];
+    
+    [self.searchControllerHandler setupSearchController:self.searchController];
+    
+    self.navigationItem.titleView = self.searchController.searchBar;    
+    self.definesPresentationContext = YES;
+}
+
+#pragma mark - TopPanel
+
+- (void)showMapViewWorkPanels:(BOOL)isVisible animated:(BOOL)isAnimated {
+    [self.navigationController setNavigationBarHidden:!isVisible animated:isAnimated];
+    
+    [UIView animateWithDuration:isAnimated ? 0.3 : 0.0 animations:^{
+        self.leftButtonsContainer.alpha = isVisible ? kLeftButtonsContainerMaxAlpha : 0.0;
+        self.zoomButtonsContainer.alpha = isVisible ? kZoomButtonsContainerMaxAlpha : 0.0;
+    }];
+}
+
+- (IBAction)menuButtonClicked:(UIBarButtonItem *)sender {
+    [self showMenu:YES];
+}
+
+- (IBAction)exitButtonClicked:(UIBarButtonItem *)sender {
+    NSLog(@"Go to MyApps screen button clicked");
+}
+
+#pragma mark - Zoom stepper
+
+- (IBAction)increaseZoomClicked:(UIButton *)sender {
+    NSLog(@"Increase zoom clicked");
+}
+
+- (IBAction)decreaseZoomClicked:(UIButton *)sender {
+    NSLog(@"Decrease zoom clicked");
+}
+
+#pragma mark - Left buttons actions
+
+- (IBAction)compassButtonClicked:(UIButton *)sender {
+    NSLog(@"Compass button clicked");
+}
+
+- (IBAction)currentPositionButtonClicked:(UIButton *)sender {
+    NSLog(@"Current position button clicked");
+}
+
 #pragma mark - Menu
 
 - (void)showMenu:(BOOL)isVisible {
     self.dimmingView.alpha = isVisible ? 0.3 : 0.0;
     self.mainMenu.alpha = isVisible ? 1.0 : 0.0;
+    
+    [self showMapViewWorkPanels:!isVisible animated:YES];
 }
 
 - (void)menuItemSelected:(MainMenuItemType)itemType {

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "UIColor+Clarion.h"
+
 @import GoogleMaps;
 @import GooglePlaces;
 
@@ -21,9 +23,17 @@
     // Override point for customization after application launch.
     [GMSServices provideAPIKey:@"AIzaSyBN4AaEVUjNkMJbkIrjlffPPGESrJdW4BQ"];
     [GMSPlacesClient provideAPIKey:@"AIzaSyBN4AaEVUjNkMJbkIrjlffPPGESrJdW4BQ"];
+    
+    [self setupAppearance];
+    
     return YES;
 }
 
+- (void)setupAppearance {
+    [[UINavigationBar appearance] setTranslucent:NO];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor navBarColor]];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
