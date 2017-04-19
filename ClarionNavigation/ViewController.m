@@ -83,6 +83,10 @@
     [self showMenu:NO];
 }
 
+- (IBAction)tapOutsideMenu:(id)sender {
+    [self showMenu:NO];
+}
+
 - (void) viewWillUnload
 {
 //      [_mapView performSelector:@selector(stopRecording) withObject:nil afterDelay:1.0];
