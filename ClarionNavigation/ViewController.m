@@ -13,13 +13,18 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "ViewController.h"
+#import "MainMenuView.h"
 
-@interface ViewController () <GMSMapViewDelegate>
-    @property(retain) UIImage* currentScreen;
+@interface ViewController () <GMSMapViewDelegate, MainMenuDelegate>
+
+@property (nonatomic, weak) IBOutlet GMSMapView *mapView;
+@property (nonatomic, weak) IBOutlet MainMenuView *mainMenu;
+@property (nonatomic, weak) IBOutlet UIView *dimmingView;
+
+@property (nonatomic, strong) UIImage *currentScreen;
 @end
 
 @implementation ViewController {
-    GMSMapView *_mapView;
     BOOL _firstLocationUpdate;
     AVAssetWriter *videoWriter;
     AVAssetWriterInput *videoWriterInput;
@@ -31,11 +36,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.868
-                                                            longitude:151.2086
-                                                                 zoom:12];
+    _mapView.camera = [GMSCameraPosition cameraWithLatitude:-33.868
+                                                  longitude:151.2086
+                                                       zoom:12];
     
-     _mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     _mapView.settings.compassButton = YES;
     _mapView.settings.myLocationButton = YES;
     _mapView.delegate = self;
@@ -45,8 +49,6 @@
                forKeyPath:@"myLocation"
                   options:NSKeyValueObservingOptionNew
                   context:NULL];
-    
-    self.view = _mapView;
     
     // Ask for My Location data after the map has already been added to the UI.
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -64,10 +66,26 @@
     
     [self performSelector:@selector(startRecording) withObject:nil afterDelay:0.0];
     [_mapView setNeedsDisplay];
-    [self performSelector:@selector(stopRecording) withObject:nil afterDelay:51.0];
+    [self performSelector:@selector(stopRecording) withObject:nil afterDelay:10.0];
+    
+    self.mainMenu.delegate = self;
 }
 
+#pragma mark - Menu
 
+- (void)showMenu:(BOOL)isVisible {
+    self.dimmingView.alpha = isVisible ? 0.3 : 0.0;
+    self.mainMenu.alpha = isVisible ? 1.0 : 0.0;
+}
+
+- (void)menuItemSelected:(MainMenuItemType)itemType {
+    NSLog(@"Menu item selected");
+    [self showMenu:NO];
+}
+
+- (IBAction)tapOutsideMenu:(id)sender {
+    [self showMenu:NO];
+}
 
 - (void) viewWillUnload
 {
@@ -239,10 +257,10 @@
         }
         
         @synchronized(self) {
-            //BOOL success = [videoWriter finishWriting];
-            //if (!success) {
-            //    NSLog(@"finishWriting returned NO");
-            //}
+            BOOL success = [videoWriter finishWriting];
+            if (!success) {
+                NSLog(@"finishWriting returned NO");
+            }
             [self cleanupWriter];
             NSString *outputPath = [[NSString alloc] initWithFormat:@"%@/%@", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0], @"output.mp4"];
             NSURL *outputURL = [[NSURL alloc] initFileURLWithPath:outputPath];
@@ -308,7 +326,7 @@
 - (CVPixelBufferRef) pixelBufferFromCGImage: (CGImageRef) image
 {
     CGFloat width =  ceilf( CGImageGetWidth(image)/100.0f)*100;
-    CGSize frame_size = CGSizeMake(width, CGImageGetHeight(image));
+    CGSize frame_size = CGSizeMake(400, CGImageGetHeight(image));
     NSDictionary *options = @{
                               (NSString*)kCVPixelBufferCGImageCompatibilityKey : @YES,
                               (NSString*)kCVPixelBufferCGBitmapContextCompatibilityKey : @YES,
