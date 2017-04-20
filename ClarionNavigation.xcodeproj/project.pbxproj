@@ -28,9 +28,10 @@
 		3E5E96351EA68CE3000BD2C2 /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5E96331EA68CE3000BD2C2 /* MainMenuView.xib */; };
 		3E5E964A1EA76D06000BD2C2 /* UIColor+Clarion.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E96491EA76D06000BD2C2 /* UIColor+Clarion.m */; };
 		3E5E964E1EA76ECA000BD2C2 /* SearchControllerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E964D1EA76ECA000BD2C2 /* SearchControllerHandler.m */; };
-		3E5E96511EA77E60000BD2C2 /* ClarionSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E96501EA77E60000BD2C2 /* ClarionSearchBar.m */; };
-		3E5E96541EA77EB0000BD2C2 /* ClarionSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E96531EA77EB0000BD2C2 /* ClarionSearchController.m */; };
 		3E5E96581EA7A0BF000BD2C2 /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E96571EA7A0BF000BD2C2 /* RoundedView.m */; };
+		3E5E96661EA942E3000BD2C2 /* SuggestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E96651EA942E3000BD2C2 /* SuggestionCell.m */; };
+		3E5E966C1EA945EB000BD2C2 /* ClarionSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E96691EA945EB000BD2C2 /* ClarionSearchBar.m */; };
+		3E5E966D1EA945EB000BD2C2 /* ClarionSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E966B1EA945EB000BD2C2 /* ClarionSearchController.m */; };
 		4A3819B1240D2C56E8C12FDB /* libPods-ClarionNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD13EB4E535FCD5AF62032EB /* libPods-ClarionNavigation.a */; };
 /* End PBXBuildFile section */
 
@@ -84,12 +85,14 @@
 		3E5E96491EA76D06000BD2C2 /* UIColor+Clarion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Clarion.m"; sourceTree = "<group>"; };
 		3E5E964C1EA76ECA000BD2C2 /* SearchControllerHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchControllerHandler.h; sourceTree = "<group>"; };
 		3E5E964D1EA76ECA000BD2C2 /* SearchControllerHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchControllerHandler.m; sourceTree = "<group>"; };
-		3E5E964F1EA77E60000BD2C2 /* ClarionSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClarionSearchBar.h; sourceTree = "<group>"; };
-		3E5E96501EA77E60000BD2C2 /* ClarionSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClarionSearchBar.m; sourceTree = "<group>"; };
-		3E5E96521EA77EB0000BD2C2 /* ClarionSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClarionSearchController.h; sourceTree = "<group>"; };
-		3E5E96531EA77EB0000BD2C2 /* ClarionSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClarionSearchController.m; sourceTree = "<group>"; };
 		3E5E96561EA7A0BF000BD2C2 /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
 		3E5E96571EA7A0BF000BD2C2 /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
+		3E5E96641EA942E3000BD2C2 /* SuggestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionCell.h; sourceTree = "<group>"; };
+		3E5E96651EA942E3000BD2C2 /* SuggestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionCell.m; sourceTree = "<group>"; };
+		3E5E96681EA945EB000BD2C2 /* ClarionSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClarionSearchBar.h; sourceTree = "<group>"; };
+		3E5E96691EA945EB000BD2C2 /* ClarionSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClarionSearchBar.m; sourceTree = "<group>"; };
+		3E5E966A1EA945EB000BD2C2 /* ClarionSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClarionSearchController.h; sourceTree = "<group>"; };
+		3E5E966B1EA945EB000BD2C2 /* ClarionSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClarionSearchController.m; sourceTree = "<group>"; };
 		903BAB818436100B6B977E53 /* Pods-ClarionNavigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarionNavigation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClarionNavigation/Pods-ClarionNavigation.debug.xcconfig"; sourceTree = "<group>"; };
 		CD13EB4E535FCD5AF62032EB /* libPods-ClarionNavigation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ClarionNavigation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F3A2A72DFE61ED23115DE3 /* Pods-ClarionNavigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarionNavigation.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClarionNavigation/Pods-ClarionNavigation.release.xcconfig"; sourceTree = "<group>"; };
@@ -237,12 +240,10 @@
 		3E5E964B1EA76EBF000BD2C2 /* SearchControllerHandler */ = {
 			isa = PBXGroup;
 			children = (
+				3E5E96671EA945EB000BD2C2 /* Views */,
+				3E5E96631EA942D2000BD2C2 /* SearchCell */,
 				3E5E964C1EA76ECA000BD2C2 /* SearchControllerHandler.h */,
 				3E5E964D1EA76ECA000BD2C2 /* SearchControllerHandler.m */,
-				3E5E964F1EA77E60000BD2C2 /* ClarionSearchBar.h */,
-				3E5E96501EA77E60000BD2C2 /* ClarionSearchBar.m */,
-				3E5E96521EA77EB0000BD2C2 /* ClarionSearchController.h */,
-				3E5E96531EA77EB0000BD2C2 /* ClarionSearchController.m */,
 			);
 			path = SearchControllerHandler;
 			sourceTree = "<group>";
@@ -254,6 +255,26 @@
 				3E5E96571EA7A0BF000BD2C2 /* RoundedView.m */,
 			);
 			path = RoundedView;
+			sourceTree = "<group>";
+		};
+		3E5E96631EA942D2000BD2C2 /* SearchCell */ = {
+			isa = PBXGroup;
+			children = (
+				3E5E96641EA942E3000BD2C2 /* SuggestionCell.h */,
+				3E5E96651EA942E3000BD2C2 /* SuggestionCell.m */,
+			);
+			path = SearchCell;
+			sourceTree = "<group>";
+		};
+		3E5E96671EA945EB000BD2C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3E5E96681EA945EB000BD2C2 /* ClarionSearchBar.h */,
+				3E5E96691EA945EB000BD2C2 /* ClarionSearchBar.m */,
+				3E5E966A1EA945EB000BD2C2 /* ClarionSearchController.h */,
+				3E5E966B1EA945EB000BD2C2 /* ClarionSearchController.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		92384684255843CEF03FDD86 /* Pods */ = {
@@ -474,7 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E5E96511EA77E60000BD2C2 /* ClarionSearchBar.m in Sources */,
+				3E5E966D1EA945EB000BD2C2 /* ClarionSearchController.m in Sources */,
 				3E5E96341EA68CE3000BD2C2 /* MainMenuView.m in Sources */,
 				302F9B161E9A91640065A630 /* ViewController.m in Sources */,
 				3E5E964A1EA76D06000BD2C2 /* UIColor+Clarion.m in Sources */,
@@ -483,7 +504,8 @@
 				3E5E964E1EA76ECA000BD2C2 /* SearchControllerHandler.m in Sources */,
 				302F9B101E9A91640065A630 /* main.m in Sources */,
 				3E5E96581EA7A0BF000BD2C2 /* RoundedView.m in Sources */,
-				3E5E96541EA77EB0000BD2C2 /* ClarionSearchController.m in Sources */,
+				3E5E966C1EA945EB000BD2C2 /* ClarionSearchBar.m in Sources */,
+				3E5E96661EA942E3000BD2C2 /* SuggestionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

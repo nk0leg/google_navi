@@ -9,8 +9,17 @@
 #import <UIKit/UIKit.h>
 @class ClarionSearchController;
 
+@protocol SearchControllerHandlerDelegate <NSObject>
+
+- (void)suggestionDidSelect:(NSString *)suggestion;
+
+@end
+
 @interface SearchControllerHandler : NSObject
 
-- (void)setupSearchController:(ClarionSearchController *)searchController;
+- (instancetype)initWithSearchController:(ClarionSearchController *)searchController tableView:(UITableView *)tableView;
+- (void)setSearchActive:(BOOL)isActive;
+
+@property (nonatomic, weak) id<SearchControllerHandlerDelegate> delegate;
 
 @end
