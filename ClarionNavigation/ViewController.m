@@ -14,15 +14,38 @@
 
 #import "ViewController.h"
 #import "MainMenuView.h"
+#import "ProxyManager.h"
+#import "SDLManager.h"
+#import "NSData+Chunks.h"
+
+typedef NS_ENUM(NSUInteger, RBStreamingType) {
+    RBStreamingTypeDevice,
+    RBStreamingTypeFile
+};
+
+static NSString* const RBVideoStreamingConnectedKeyPath = @"videoSessionConnected";
+static void* RBVideoStreamingConnectedContext = &RBVideoStreamingConnectedContext;
+
+static NSString* const RBAudioStreamingConnectedKeyPath = @"audioSessionConnected";
+static void* RBAudioStreamingConnectedContext = &RBAudioStreamingConnectedContext;
 
 @interface ViewController () <GMSMapViewDelegate, MainMenuDelegate>
 
 @property (nonatomic, weak) IBOutlet GMSMapView *mapView;
 @property (nonatomic, weak) IBOutlet MainMenuView *mainMenu;
 @property (nonatomic, weak) IBOutlet UIView *dimmingView;
+@property (nonatomic, strong, readwrite, nullable) SDLStreamingMediaManager *streamingMediaManager;
+@property (nonatomic, strong) SDLManager *manager;
 
 @property (nonatomic, strong) UIImage *currentScreen;
+
+// Video File Streaming
+@property (nonatomic, weak) IBOutlet UISegmentedControl* videoStreamingTypeSegmentedControl;
+@property (nonatomic, strong) dispatch_queue_t videoStreamingQueue;
+@property (nonatomic, strong) NSData* videoStreamingData;
+@property (nonatomic) BOOL endVideoStreaming;
 @end
+
 
 @implementation ViewController {
     BOOL _firstLocationUpdate;
@@ -32,10 +55,12 @@
     NSDate* startedAt;
     void* bitmapData;
     BOOL _recording;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _mapView.camera = [GMSCameraPosition cameraWithLatitude:-33.868
                                                   longitude:151.2086
                                                        zoom:12];
@@ -68,6 +93,20 @@
     [_mapView setNeedsDisplay];
     [self performSelector:@selector(stopRecording) withObject:nil afterDelay:10.0];
     
+    
+//    ProxyState state = [ProxyManager sharedManager].state;
+//    switch (state) {
+//        case ProxyStateStopped: {
+//            [[ProxyManager sharedManager] startIAP];
+//        } break;
+//        case ProxyStateSearchingForConnection: {
+//            [[ProxyManager sharedManager] reset];
+//        } break;
+//        case ProxyStateConnected: {
+//            [[ProxyManager sharedManager] reset];
+//        } break;
+//        default: break;
+//    }
     self.mainMenu.delegate = self;
 }
 
@@ -101,6 +140,10 @@
     [_mapView removeObserver:self
                   forKeyPath:@"myLocation"
                      context:NULL];
+    
+//    @try {
+//        [[ProxyManager sharedManager] removeObserver:self forKeyPath:NSStringFromSelector(@selector(state))];
+//    } @catch (NSException __unused *exception) {}
 }
 
 #pragma mark - KVO updates
@@ -109,6 +152,11 @@
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
+    
+//    if ([keyPath isEqualToString:NSStringFromSelector(@selector(state))]) {
+//            ProxyState newState = [change[NSKeyValueChangeNewKey] unsignedIntegerValue];
+//            NSLog(@"SDL Proxy state = [%lu]",(unsigned long)newState);
+//        }
     if (!_firstLocationUpdate) {
         // If the first location update has not yet been recieved, then jump to that
         // location.
@@ -291,7 +339,7 @@
 - (void) stopRecording {
     @synchronized(self) {
         if (_recording) {
-            //_recording = false;
+            _recording = false;
             [self completeRecordingSession];
         }
     }
@@ -363,6 +411,157 @@
     
     CVPixelBufferUnlockBaseAddress(pxbuffer, 0);
     return pxbuffer;
+}
+
+
+#pragma mark - SDL Streaming
+- (sdlProxyManager*)SDLManager {
+    return [sdlProxyManager sharedManager];
+}
+
+- (SDLStreamingMediaManager*)streamingManager {
+    return self.SDLManager.streamingMediaManager;
+}
+
+- (BOOL)isAudioSessionConnected {
+    return self.SDLManager.isConnected ? self.streamingManager.audioSessionConnected : NO;
+}
+
+- (BOOL)isVideoSessionConnected {
+    return self.SDLManager.isConnected ? self.streamingManager.videoSessionConnected : NO;
+}
+
+
+- (void)sdl_handleEmptyStreamingDataError {
+    [self sdl_presentErrorWithMessage:@"Cannot start stream. Streaming data is empty."];
+}
+
+- (void)sdl_handleProxyNotConnectedError {
+    [self sdl_presentErrorWithMessage:@"Cannot start streaming. Not connected to Core."];
+}
+
+- (void)sdl_presentErrorWithMessage:(NSString*)message {
+//    UIAlertController* alertController = [UIAlertController simpleErrorAlertWithMessage:message];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self presentViewController:alertController
+//                           animated:YES
+//                         completion:nil];
+//    });
+}
+
+- (void)sdl_handleError:(NSError*)error {
+    NSString* errorString = error.localizedDescription;
+    NSString* systemErrorCode = error.userInfo[@"OSStatus"];
+    if ([error.domain isEqualToString:SDLErrorDomainStreamingMediaAudio]) {
+        switch (error.code) {
+            case SDLStreamingAudioErrorHeadUnitNACK:
+                errorString = @"Audio Streaming did not receive acknowledgement from Core.";
+                break;
+            default:
+                break;
+        }
+    } else if ([error.domain isEqualToString:SDLErrorDomainStreamingMediaVideo]) {
+        switch (error.code) {
+            case SDLStreamingVideoErrorHeadUnitNACK:
+                errorString = @"Video Streaming did not receive acknowledgement from Core.";
+                break;
+            case SDLStreamingVideoErrorInvalidOperatingSystemVersion:
+                errorString = @"Video Streaming can only be run on iOS 8+ devices.";
+                break;
+            case SDLStreamingVideoErrorConfigurationCompressionSessionCreationFailure:
+                errorString = @"Could not create Video Streaming compression session.";
+                break;
+            case SDLStreamingVideoErrorConfigurationAllocationFailure:
+                errorString = @"Could not allocate Video Streaming configuration.";
+                break;
+            case SDLStreamingVideoErrorConfigurationCompressionSessionSetPropertyFailure:
+                errorString = @"Could not set property for Video Streaming configuration.";
+                break;
+            default:
+                break;
+        }
+    }
+    
+    if (systemErrorCode) {
+        errorString = [NSString stringWithFormat:@"%@ %@", errorString, systemErrorCode];
+    }
+    
+    [self sdl_presentErrorWithMessage:errorString];
+}
+
+
+- (void)sdl_beginVideoStreaming {
+    if (self.videoStreamingTypeSegmentedControl.selectedSegmentIndex == RBStreamingTypeDevice) {
+//        if (!self.camera) {
+//            self.camera = [[RBCamera alloc] initWithDelegate:self];
+//        }
+        
+ //       [self.camera startCapture];
+    } else {
+        self.videoStreamingQueue = dispatch_queue_create("com.smartdevicelink.videostreaming",
+                                                         DISPATCH_QUEUE_SERIAL);
+        
+//        NSArray* videoChunks = [self.videoStreamingData dataChunksOfSize:self.settingsManager.videoStreamingBufferSize];
+        NSInteger videoStreamingBufferSize = 300;
+        NSArray* videoChunks = [self.videoStreamingData dataChunksOfSize:videoStreamingBufferSize];
+        
+        dispatch_async(self.videoStreamingQueue, ^{
+            while (!self.endVideoStreaming) {
+                for (NSData* chunk in videoChunks) {
+                    // We send raw data because there are so many possible types of files,
+                    // it's easier for us to just send raw data, and let Core try to
+                    // reassemble it. SDLStreamingMediaManager actually takes
+                    // CVImageBufferRefs and converts them to NSData and sends them off
+                    // using SDLProtocol's sendRawData:withServiceType:.
+                    if (self.isVideoSessionConnected) {
+                        [self.SDLManager.protocol sendRawData:chunk
+                                         withServiceType:SDLServiceType_Video];
+                        
+                        [NSThread sleepForTimeInterval:0.25];
+                    } else {
+                        self.endVideoStreaming = YES;
+                        break;
+                    }
+                }
+            }
+            
+            self.endVideoStreaming = NO;
+        });
+    }
+}
+
+- (void)sdl_endVideoStreaming {
+    [self.streamingManager stopVideoSession];
+//    [self.camera stopCapture];
+    
+    self.endVideoStreaming = YES;
+    self.videoStreamingQueue = nil;
+}
+
+
+- (void)StartVideoStreaming {
+    if (self.streamingManager.videoSessionConnected) {
+        [self sdl_endVideoStreaming];
+    } else {
+        if (self.videoStreamingTypeSegmentedControl.selectedSegmentIndex == RBStreamingTypeFile
+            && !self.videoStreamingData) {
+            [self sdl_handleEmptyStreamingDataError];
+            return;
+        }
+        if (!self.SDLManager.isConnected) {
+            [self sdl_handleProxyNotConnectedError];
+            return;
+        }
+        __weak typeof(self) weakSelf = self;
+        [self.streamingManager startVideoSessionWithStartBlock:^(BOOL success, NSError * _Nullable error) {
+            typeof(weakSelf) strongSelf = weakSelf;
+            if (!success) {
+                [strongSelf sdl_handleError:error];
+            } else {
+                [strongSelf sdl_beginVideoStreaming];
+            }
+        }];
+    }
 }
 
 @end

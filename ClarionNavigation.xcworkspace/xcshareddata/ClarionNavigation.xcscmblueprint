@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C0911484C72E069CD5D538E4F62B7DB606741CC9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "503599256BF0DC347AB25463F0F177666A9C138D" : 9223372036854775807,
+    "C0911484C72E069CD5D538E4F62B7DB606741CC9" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "933B509F-111D-4D2E-9127-3CCE8D792FF7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "503599256BF0DC347AB25463F0F177666A9C138D" : "rpc_builder_app_ios\/",
+    "C0911484C72E069CD5D538E4F62B7DB606741CC9" : "ClarionNavigation\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ClarionNavigation",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ClarionNavigation.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/smartdevicelink\/rpc_builder_app_ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "503599256BF0DC347AB25463F0F177666A9C138D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/adc.luxoft.com\/stash\/scm\/~okrotenko\/ios_navigation.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C0911484C72E069CD5D538E4F62B7DB606741CC9"
+    }
+  ]
+}

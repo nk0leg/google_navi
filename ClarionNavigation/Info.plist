@@ -25,11 +25,26 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Show your location on the map</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Show your location on the map</string>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>ford.com</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>external-accessory</string>
+		<string>fetch</string>
+		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -39,10 +54,42 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.ford.sync.prot0</string>
+		<string>com.smartdevicelink.prot0</string>
+		<string>com.smartdevicelink.prot1</string>
+		<string>com.smartdevicelink.prot2</string>
+		<string>com.smartdevicelink.prot3</string>
+		<string>com.smartdevicelink.prot4</string>
+		<string>com.smartdevicelink.prot5</string>
+		<string>com.smartdevicelink.prot6</string>
+		<string>com.smartdevicelink.prot7</string>
+		<string>com.smartdevicelink.prot8</string>
+		<string>com.smartdevicelink.prot9</string>
+		<string>com.smartdevicelink.prot10</string>
+		<string>com.smartdevicelink.prot11</string>
+		<string>com.smartdevicelink.prot12</string>
+		<string>com.smartdevicelink.prot13</string>
+		<string>com.smartdevicelink.prot14</string>
+		<string>com.smartdevicelink.prot15</string>
+		<string>com.smartdevicelink.prot16</string>
+		<string>com.smartdevicelink.prot17</string>
+		<string>com.smartdevicelink.prot18</string>
+		<string>com.smartdevicelink.prot19</string>
+		<string>com.smartdevicelink.prot20</string>
+		<string>com.smartdevicelink.prot21</string>
+		<string>com.smartdevicelink.prot22</string>
+		<string>com.smartdevicelink.prot23</string>
+		<string>com.smartdevicelink.prot24</string>
+		<string>com.smartdevicelink.prot25</string>
+		<string>com.smartdevicelink.prot26</string>
+		<string>com.smartdevicelink.prot27</string>
+		<string>com.smartdevicelink.prot28</string>
+		<string>com.smartdevicelink.prot29</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>

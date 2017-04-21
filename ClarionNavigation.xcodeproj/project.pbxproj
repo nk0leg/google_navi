@@ -24,9 +24,19 @@
 		302F9B511E9BBA9D0065A630 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B501E9BBA9D0065A630 /* CoreMedia.framework */; };
 		302F9B531E9BBAA80065A630 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B521E9BBAA80065A630 /* QuartzCore.framework */; };
 		302F9B551E9BBAB50065A630 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302F9B541E9BBAB50065A630 /* Foundation.framework */; };
+		30DB8CAF1EAA0BEA00EEBBDB /* Pods_ClarionNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DB8CAE1EAA0BEA00EEBBDB /* Pods_ClarionNavigation.framework */; };
+		30DB8CBF1EAA0D8500EEBBDB /* NSStream+Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB8CBB1EAA0D8500EEBBDB /* NSStream+Connection.m */; };
+		30DB8CC01EAA0D8500EEBBDB /* NSObject+Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB8CBC1EAA0D8500EEBBDB /* NSObject+Notifications.m */; };
+		30DB8CC11EAA0D8500EEBBDB /* EASession+Streams.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB8CBD1EAA0D8500EEBBDB /* EASession+Streams.m */; };
+		30DB8CCA1EAA0D9200EEBBDB /* SDLTCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB8CC21EAA0D9200EEBBDB /* SDLTCPServer.m */; };
+		30DB8CCB1EAA0D9200EEBBDB /* SDLTCPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB8CC31EAA0D9200EEBBDB /* SDLTCPConnection.m */; };
+		30DB8CCC1EAA0D9200EEBBDB /* SDLRelayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB8CC51EAA0D9200EEBBDB /* SDLRelayManager.m */; };
+		30DB8CCD1EAA0D9200EEBBDB /* SDLiAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB8CC61EAA0D9200EEBBDB /* SDLiAPManager.m */; };
+		30DB8CD01EAA1F0F00EEBBDB /* ProxyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB8CCE1EAA1F0F00EEBBDB /* ProxyManager.m */; };
+		30DB8CD41EAA5B1C00EEBBDB /* NSData+Chunks.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB8CD31EAA5B1C00EEBBDB /* NSData+Chunks.m */; };
 		3E5E96341EA68CE3000BD2C2 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E96321EA68CE3000BD2C2 /* MainMenuView.m */; };
 		3E5E96351EA68CE3000BD2C2 /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E5E96331EA68CE3000BD2C2 /* MainMenuView.xib */; };
-		4A3819B1240D2C56E8C12FDB /* libPods-ClarionNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD13EB4E535FCD5AF62032EB /* libPods-ClarionNavigation.a */; };
+		CDDF9DB0EE38B20BB55987E8 /* Pods_ClarionNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CBD3CFD96B12F787BE9671 /* Pods_ClarionNavigation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,11 +82,30 @@
 		302F9B501E9BBA9D0065A630 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		302F9B521E9BBAA80065A630 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		302F9B541E9BBAB50065A630 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		30DB8CAE1EAA0BEA00EEBBDB /* Pods_ClarionNavigation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ClarionNavigation.framework; path = "../../Library/Developer/Xcode/DerivedData/ClarionNavigation-eymetjfrlpziuldcmzqicxrwcofo/Build/Products/Debug-iphonesimulator/Pods_ClarionNavigation.framework"; sourceTree = "<group>"; };
+		30DB8CB91EAA0D8500EEBBDB /* NSStream+Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSStream+Connection.h"; path = "IAPManager/EATools/NSStream+Connection.h"; sourceTree = "<group>"; };
+		30DB8CBA1EAA0D8500EEBBDB /* EASession+Streams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EASession+Streams.h"; path = "IAPManager/EATools/EASession+Streams.h"; sourceTree = "<group>"; };
+		30DB8CBB1EAA0D8500EEBBDB /* NSStream+Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSStream+Connection.m"; path = "IAPManager/EATools/NSStream+Connection.m"; sourceTree = "<group>"; };
+		30DB8CBC1EAA0D8500EEBBDB /* NSObject+Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Notifications.m"; path = "IAPManager/EATools/NSObject+Notifications.m"; sourceTree = "<group>"; };
+		30DB8CBD1EAA0D8500EEBBDB /* EASession+Streams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EASession+Streams.m"; path = "IAPManager/EATools/EASession+Streams.m"; sourceTree = "<group>"; };
+		30DB8CBE1EAA0D8500EEBBDB /* NSObject+Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Notifications.h"; path = "IAPManager/EATools/NSObject+Notifications.h"; sourceTree = "<group>"; };
+		30DB8CC21EAA0D9200EEBBDB /* SDLTCPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDLTCPServer.m; path = IAPManager/SDLTCPServer.m; sourceTree = "<group>"; };
+		30DB8CC31EAA0D9200EEBBDB /* SDLTCPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDLTCPConnection.m; path = IAPManager/SDLTCPConnection.m; sourceTree = "<group>"; };
+		30DB8CC41EAA0D9200EEBBDB /* SDLTCPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDLTCPConnection.h; path = IAPManager/SDLTCPConnection.h; sourceTree = "<group>"; };
+		30DB8CC51EAA0D9200EEBBDB /* SDLRelayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDLRelayManager.m; path = IAPManager/SDLRelayManager.m; sourceTree = "<group>"; };
+		30DB8CC61EAA0D9200EEBBDB /* SDLiAPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDLiAPManager.m; path = IAPManager/SDLiAPManager.m; sourceTree = "<group>"; };
+		30DB8CC71EAA0D9200EEBBDB /* SDLTCPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDLTCPServer.h; path = IAPManager/SDLTCPServer.h; sourceTree = "<group>"; };
+		30DB8CC81EAA0D9200EEBBDB /* SDLiAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDLiAPManager.h; path = IAPManager/SDLiAPManager.h; sourceTree = "<group>"; };
+		30DB8CC91EAA0D9200EEBBDB /* SDLRelayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDLRelayManager.h; path = IAPManager/SDLRelayManager.h; sourceTree = "<group>"; };
+		30DB8CCE1EAA1F0F00EEBBDB /* ProxyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProxyManager.m; path = SDL/ProxyManager.m; sourceTree = "<group>"; };
+		30DB8CCF1EAA1F0F00EEBBDB /* ProxyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProxyManager.h; path = SDL/ProxyManager.h; sourceTree = "<group>"; };
+		30DB8CD21EAA5B1C00EEBBDB /* NSData+Chunks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Chunks.h"; path = "../../rpc_builder_app_ios/RPC Builder/Utilities/Categories/NSData+Chunks.h"; sourceTree = "<group>"; };
+		30DB8CD31EAA5B1C00EEBBDB /* NSData+Chunks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Chunks.m"; path = "../../rpc_builder_app_ios/RPC Builder/Utilities/Categories/NSData+Chunks.m"; sourceTree = "<group>"; };
 		3E5E96311EA68CE3000BD2C2 /* MainMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuView.h; sourceTree = "<group>"; };
 		3E5E96321EA68CE3000BD2C2 /* MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuView.m; sourceTree = "<group>"; };
 		3E5E96331EA68CE3000BD2C2 /* MainMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuView.xib; sourceTree = "<group>"; };
 		903BAB818436100B6B977E53 /* Pods-ClarionNavigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarionNavigation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClarionNavigation/Pods-ClarionNavigation.debug.xcconfig"; sourceTree = "<group>"; };
-		CD13EB4E535FCD5AF62032EB /* libPods-ClarionNavigation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ClarionNavigation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7CBD3CFD96B12F787BE9671 /* Pods_ClarionNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClarionNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F3A2A72DFE61ED23115DE3 /* Pods-ClarionNavigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarionNavigation.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClarionNavigation/Pods-ClarionNavigation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30DB8CAF1EAA0BEA00EEBBDB /* Pods_ClarionNavigation.framework in Frameworks */,
 				302F9B471E9BBA2D0065A630 /* UIKit.framework in Frameworks */,
 				302F9B551E9BBAB50065A630 /* Foundation.framework in Frameworks */,
 				302F9B491E9BBA410065A630 /* CoreGraphics.framework in Frameworks */,
@@ -93,7 +123,7 @@
 				302F9B4F1E9BBA930065A630 /* CoreVideo.framework in Frameworks */,
 				302F9B511E9BBA9D0065A630 /* CoreMedia.framework in Frameworks */,
 				302F9B531E9BBAA80065A630 /* QuartzCore.framework in Frameworks */,
-				4A3819B1240D2C56E8C12FDB /* libPods-ClarionNavigation.a in Frameworks */,
+				CDDF9DB0EE38B20BB55987E8 /* Pods_ClarionNavigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +170,9 @@
 		302F9B0D1E9A91640065A630 /* ClarionNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				30DB8CD11EAA5AF400EEBBDB /* Utils */,
+				30DB8CB71EAA0D6100EEBBDB /* iAP */,
+				30DB8CB01EAA0D4200EEBBDB /* SDL */,
 				3E5E962A1EA6846E000BD2C2 /* Views */,
 				302F9B111E9A91640065A630 /* AppDelegate.h */,
 				302F9B121E9A91640065A630 /* AppDelegate.m */,
@@ -189,6 +222,53 @@
 			path = ClarionNavigation;
 			sourceTree = "<group>";
 		};
+		30DB8CB01EAA0D4200EEBBDB /* SDL */ = {
+			isa = PBXGroup;
+			children = (
+				30DB8CCE1EAA1F0F00EEBBDB /* ProxyManager.m */,
+				30DB8CCF1EAA1F0F00EEBBDB /* ProxyManager.h */,
+			);
+			name = SDL;
+			sourceTree = "<group>";
+		};
+		30DB8CB71EAA0D6100EEBBDB /* iAP */ = {
+			isa = PBXGroup;
+			children = (
+				30DB8CB81EAA0D7100EEBBDB /* EATool */,
+				30DB8CC21EAA0D9200EEBBDB /* SDLTCPServer.m */,
+				30DB8CC31EAA0D9200EEBBDB /* SDLTCPConnection.m */,
+				30DB8CC51EAA0D9200EEBBDB /* SDLRelayManager.m */,
+				30DB8CC41EAA0D9200EEBBDB /* SDLTCPConnection.h */,
+				30DB8CC61EAA0D9200EEBBDB /* SDLiAPManager.m */,
+				30DB8CC71EAA0D9200EEBBDB /* SDLTCPServer.h */,
+				30DB8CC81EAA0D9200EEBBDB /* SDLiAPManager.h */,
+				30DB8CC91EAA0D9200EEBBDB /* SDLRelayManager.h */,
+			);
+			name = iAP;
+			sourceTree = "<group>";
+		};
+		30DB8CB81EAA0D7100EEBBDB /* EATool */ = {
+			isa = PBXGroup;
+			children = (
+				30DB8CB91EAA0D8500EEBBDB /* NSStream+Connection.h */,
+				30DB8CBA1EAA0D8500EEBBDB /* EASession+Streams.h */,
+				30DB8CBB1EAA0D8500EEBBDB /* NSStream+Connection.m */,
+				30DB8CBC1EAA0D8500EEBBDB /* NSObject+Notifications.m */,
+				30DB8CBD1EAA0D8500EEBBDB /* EASession+Streams.m */,
+				30DB8CBE1EAA0D8500EEBBDB /* NSObject+Notifications.h */,
+			);
+			name = EATool;
+			sourceTree = "<group>";
+		};
+		30DB8CD11EAA5AF400EEBBDB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				30DB8CD21EAA5B1C00EEBBDB /* NSData+Chunks.h */,
+				30DB8CD31EAA5B1C00EEBBDB /* NSData+Chunks.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		3E5E962A1EA6846E000BD2C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +299,7 @@
 		9E13F0017A8AC23CC23571D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30DB8CAE1EAA0BEA00EEBBDB /* Pods_ClarionNavigation.framework */,
 				302F9B541E9BBAB50065A630 /* Foundation.framework */,
 				302F9B521E9BBAA80065A630 /* QuartzCore.framework */,
 				302F9B501E9BBA9D0065A630 /* CoreMedia.framework */,
@@ -227,7 +308,7 @@
 				302F9B4A1E9BBA730065A630 /* AssetsLibrary.framework */,
 				302F9B481E9BBA410065A630 /* CoreGraphics.framework */,
 				302F9B461E9BBA2D0065A630 /* UIKit.framework */,
-				CD13EB4E535FCD5AF62032EB /* libPods-ClarionNavigation.a */,
+				C7CBD3CFD96B12F787BE9671 /* Pods_ClarionNavigation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -385,7 +466,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5BE720B56BB1A144ADA94540 /* [CP] Embed Pods Frameworks */ = {
@@ -425,10 +506,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30DB8CCD1EAA0D9200EEBBDB /* SDLiAPManager.m in Sources */,
+				30DB8CD01EAA1F0F00EEBBDB /* ProxyManager.m in Sources */,
+				30DB8CD41EAA5B1C00EEBBDB /* NSData+Chunks.m in Sources */,
+				30DB8CBF1EAA0D8500EEBBDB /* NSStream+Connection.m in Sources */,
 				3E5E96341EA68CE3000BD2C2 /* MainMenuView.m in Sources */,
 				302F9B161E9A91640065A630 /* ViewController.m in Sources */,
+				30DB8CCB1EAA0D9200EEBBDB /* SDLTCPConnection.m in Sources */,
 				302F9B131E9A91640065A630 /* AppDelegate.m in Sources */,
+				30DB8CCC1EAA0D9200EEBBDB /* SDLRelayManager.m in Sources */,
+				30DB8CC11EAA0D8500EEBBDB /* EASession+Streams.m in Sources */,
 				302F9B1C1E9A91640065A630 /* ClarionNavigation.xcdatamodeld in Sources */,
+				30DB8CCA1EAA0D9200EEBBDB /* SDLTCPServer.m in Sources */,
+				30DB8CC01EAA0D8500EEBBDB /* NSObject+Notifications.m in Sources */,
 				302F9B101E9A91640065A630 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

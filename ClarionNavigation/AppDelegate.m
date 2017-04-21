@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ProxyManager.h"
 @import GoogleMaps;
 @import GooglePlaces;
 
@@ -19,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[sdlProxyManager sharedManager] start];
     [GMSServices provideAPIKey:@"AIzaSyBN4AaEVUjNkMJbkIrjlffPPGESrJdW4BQ"];
     [GMSPlacesClient provideAPIKey:@"AIzaSyBN4AaEVUjNkMJbkIrjlffPPGESrJdW4BQ"];
     return YES;
