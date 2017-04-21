@@ -21,7 +21,7 @@
 static CGFloat const kZoomButtonsContainerMaxAlpha = 0.4;
 static CGFloat const kLeftButtonsContainerMaxAlpha = 1.0;
 
-@interface ViewController () <GMSMapViewDelegate, MainMenuDelegate>
+@interface ViewController () <GMSMapViewDelegate, MainMenuDelegate, SearchControllerHandlerDelegate>
 
 @property (nonatomic, weak) IBOutlet GMSMapView *mapView;
 @property (nonatomic, weak) IBOutlet MainMenuView *mainMenu;
@@ -31,6 +31,7 @@ static CGFloat const kLeftButtonsContainerMaxAlpha = 1.0;
 @property (nonatomic, strong) SearchControllerHandler *searchControllerHandler;
 @property (weak, nonatomic) IBOutlet UIView *leftButtonsContainer;
 @property (weak, nonatomic) IBOutlet RoundedView *zoomButtonsContainer;
+@property (weak, nonatomic) IBOutlet UITableView *searchTableView;
 
 @property (nonatomic, strong) UIImage *currentScreen;
 @end
@@ -88,12 +89,17 @@ static CGFloat const kLeftButtonsContainerMaxAlpha = 1.0;
 
 - (void)setupSearchController {
     self.searchController = [[ClarionSearchController alloc] initWithSearchResultsController:nil];
-    self.searchControllerHandler = [SearchControllerHandler new];
-    
-    [self.searchControllerHandler setupSearchController:self.searchController];
+    self.searchControllerHandler = [[SearchControllerHandler alloc] initWithSearchController:self.searchController tableView:self.searchTableView];
+    self.searchControllerHandler.delegate = self;
     
     self.navigationItem.titleView = self.searchController.searchBar;    
     self.definesPresentationContext = YES;
+}
+
+#pragma mark - SearchControllerHandlerDelegate
+
+- (void)suggestionDidSelect:(NSString *)suggestion {
+    NSLog(@"Suggestion did select:%@", suggestion);
 }
 
 #pragma mark - TopPanel
@@ -145,6 +151,17 @@ static CGFloat const kLeftButtonsContainerMaxAlpha = 1.0;
 }
 
 - (void)menuItemSelected:(MainMenuItemType)itemType {
+    switch (itemType) {
+        case MainMenuItemTypeSearch:
+        {
+            [self.searchControllerHandler setSearchActive:YES];
+        }
+            break;
+            
+        default:            
+            break;
+    }
+    
     NSLog(@"Menu item selected");
     [self showMenu:NO];
 }
